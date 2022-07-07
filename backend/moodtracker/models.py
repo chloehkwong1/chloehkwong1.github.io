@@ -8,6 +8,6 @@ class MoodEntry(models.Model):
     mood_influences = models.TextField()
 
     def _str_(self):
-        return 'My mood at {self.time} on {self.date}'
+        return 'My mood was {self.mood} at {self.time} on {self.date}'
 
 # class MoodTypes(models.Model):
