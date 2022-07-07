@@ -6,6 +6,5 @@ class MoodEntryAdmin(admin.ModelAdmin):
 
 # Register your models here.
 
-admin.site.register(MoodEntry,  MoodEntryAdmin)
-  
 
+admin.site.register(MoodEntry,  MoodEntryAdmin)
