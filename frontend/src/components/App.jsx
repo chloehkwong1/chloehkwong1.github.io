@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Header from "./Header";
-import Footer from "./Footer";
+import Home from "./Home";
+import Form from "./Form";
+
+import Layout from "./Layout";
 
 function App() {
-  const [moodEntry, setMoodEntry] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/api/moodtracker/")
-      .then((res) => res.json())
-      .then((data) => setMoodEntry(data));
-  }, []);
-
-  const renderMoodEntries = () =>
-    moodEntry.map((item, index) => (
-      <ul key={`mood-entry-list-item-${index}`}>
-        <div>
-          <h1>
-            Mood at {item.date} {item.time}
-          </h1>
-          <h1>Mood is: {item.mood}</h1>
-          <span>{item.mood_influences}</span>
-        </div>
-      </ul>
-    ));
-
   return (
-    <div className="App">
-      <Header />
-      <div>{renderMoodEntries()}</div>
-      <Footer />
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="form" element={<Form />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
