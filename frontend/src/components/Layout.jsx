@@ -7,9 +7,9 @@ const Layout = () => (
   <div>
     <header>
       <h1>Mood Tracker App</h1>
-      <nav>
+      <nav className="topnav">
         <ul>
-          <li>
+          <li className="active">
             <Link to="/">Home</Link>
           </li>
           <li>
