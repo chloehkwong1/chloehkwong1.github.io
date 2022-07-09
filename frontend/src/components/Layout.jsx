@@ -7,13 +7,14 @@ const Layout = () => (
   <div>
     <header>
       <h1>Mood Tracker App</h1>
+      <h2>An app to help you understand patterns in your moods</h2>
       <nav className="topnav">
-        <ul>
+        <ul className="header-nav nav-links">
           <li className="active">
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/form">Form</Link>
+          <li className="active">
+            <Link to="/form">Add a mood</Link>
           </li>
         </ul>
       </nav>
