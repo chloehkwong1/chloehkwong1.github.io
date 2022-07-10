@@ -17,8 +17,8 @@ class MoodEntry(models.Model):
 
     HELP_TEXT = 'How are you feeling today?'
 
-    date = models.DateField()
-    time = models.TimeField()
+    date = models.DateField(auto_now_add=True)
+    time = models.TimeField(auto_now_add=True)
     mood = models.CharField(max_length=10, choices=MOOD_CHOICES, help_text=HELP_TEXT)
     mood_influences = models.TextField(blank=True)
 
