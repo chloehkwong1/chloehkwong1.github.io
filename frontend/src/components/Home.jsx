@@ -6,7 +6,7 @@ function Home() {
   useEffect(() => {
     fetch("http://localhost:8000/api/moodtracker/")
       .then((res) => res.json())
-      .then((data) => console.log(data) || setMoodEntry(data));
+      .then((data) => setMoodEntry(data));
   }, []);
 
   const formatDate = (entryDate) => {
