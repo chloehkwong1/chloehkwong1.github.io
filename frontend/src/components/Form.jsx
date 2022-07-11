@@ -22,11 +22,10 @@ const Form = () => {
 
   if (isSubmitSuccessful) {
     alert("You have successfully logged your mood.");
-    // reset();
   }
 
   useEffect(() => {
-    if (formState.isSubmitSuccessful) {
+    if (isSubmitSuccessful) {
       reset({ mood: "", mood_influences: "" });
     }
   }, [formState, reset]);
