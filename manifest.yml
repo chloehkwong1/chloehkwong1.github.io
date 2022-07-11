@@ -1,0 +1,7 @@
+---
+applications:
+- name: firebreak-mood-tracker-app-dev
+  memory: 64M
+
+  buildpacks:
+  - staticfile_buildpack
