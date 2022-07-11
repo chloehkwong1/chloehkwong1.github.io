@@ -31,23 +31,26 @@ function Home() {
     return formattedTime;
   };
 
+  //   slice(0) is used to make a shallow copy of the array.
   const renderMoodEntries = () =>
-    moodEntry.map((item, index) => (
-      <ul key={`mood-entry-list-item-${index}`}>
-        <div className="note">
-          <h1>
-            On {formatDate(item.time)} at {formatTime(item.time)},
-            you felt:
-            <div>{item.mood}</div>
-          </h1>
-          <span>
-            {item.mood_influences && (
-              <div>The reason you gave was: {item.mood_influences}</div>
-            )}{" "}
-          </span>
-        </div>
-      </ul>
-    ));
+    moodEntry
+      .slice(0)
+      .reverse()
+      .map((item, index) => (
+        <ul key={`mood-entry-list-item-${index}`}>
+          <div className="note">
+            <h1>
+              On {formatDate(item.time)} at {formatTime(item.time)}, you felt:
+              <div>{item.mood}</div>
+            </h1>
+            <span>
+              {item.mood_influences && (
+                <div>The reason you gave was: {item.mood_influences}</div>
+              )}{" "}
+            </span>
+          </div>
+        </ul>
+      ));
 
   return (
     <div className="App">
