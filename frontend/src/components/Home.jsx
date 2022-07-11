@@ -33,7 +33,7 @@ function Home() {
   const renderMoodEntries = () =>
     moodEntry.map((item, index) => (
       <ul key={`mood-entry-list-item-${index}`}>
-        <div>
+        <div className="note">
           <h1>
             On {formatDate(item.date)} at {formatTime(item.date, item.time)}, you felt:
             <div>{item.mood}</div>
