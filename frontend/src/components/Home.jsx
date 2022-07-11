@@ -21,11 +21,12 @@ function Home() {
     return formattedDate;
   }
 
-  const formatTime = (entryTime) => {
-    const hourOnly = entryTime.slice(0, 2)
-    if (hourOnly >= 12)
-      return `${hourOnly-12}pm`
-    return `${hourOnly[1]}am`;
+  const formatTime = (entryDate, entryTime) => {
+    const timeToFormat = new Date(entryDate + 'T' + entryTime);
+    const formattedTime = timeToFormat.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+    if (formattedTime[0] === '0')
+      return formattedTime.slice(1);
+    return formattedTime
   }
 
 
@@ -34,7 +35,7 @@ function Home() {
       <ul key={`mood-entry-list-item-${index}`}>
         <div>
           <h1>
-            On {formatDate(item.date)} at {formatTime(item.time)}, you felt:
+            On {formatDate(item.date)} at {formatTime(item.date, item.time)}, you felt:
             <div>{item.mood}</div>
           </h1>
           <span>{item.mood_influences && <div>The reason you gave was: { item.mood_influences}</div>} </span>
