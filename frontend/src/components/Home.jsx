@@ -6,7 +6,7 @@ function Home() {
   useEffect(() => {
     fetch("http://localhost:8000/api/moodtracker/")
       .then((res) => res.json())
-      .then((data) => setMoodEntry(data));
+      .then((data) => console.log(data) || setMoodEntry(data));
   }, []);
 
   const formatDate = (entryDate) => {
@@ -21,8 +21,8 @@ function Home() {
     return formattedDate;
   };
 
-  const formatTime = (entryDate, entryTime) => {
-    const timeToFormat = new Date(entryDate + "T" + entryTime);
+  const formatTime = (entryTime) => {
+    const timeToFormat = new Date(entryTime);
     const formattedTime = timeToFormat.toLocaleTimeString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
@@ -36,7 +36,7 @@ function Home() {
       <ul key={`mood-entry-list-item-${index}`}>
         <div className="note">
           <h1>
-            On {formatDate(item.date)} at {formatTime(item.date, item.time)},
+            On {formatDate(item.time)} at {formatTime(item.time)},
             you felt:
             <div>{item.mood}</div>
           </h1>
