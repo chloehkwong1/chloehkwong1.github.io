@@ -25,7 +25,7 @@ const Form = () => {
   }
 
   useEffect(() => {
-    if (isSubmitSuccessful) {
+    if (formState.isSubmitSuccessful) {
       reset({ mood: "", mood_influences: "" });
     }
   }, [formState, reset]);

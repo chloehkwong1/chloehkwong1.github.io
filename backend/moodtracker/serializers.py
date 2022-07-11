@@ -7,4 +7,4 @@ from .models import MoodEntry
 class MoodEntrySerializer(serializers.ModelSerializer):
     class Meta:
         model = MoodEntry
-        fields = ('id', 'date', 'time', 'mood','mood_influences')
+        fields = ('id', 'time', 'mood','mood_influences')
