@@ -31,8 +31,8 @@ const Form = () => {
   }, [formState, reset]);
 
   return (
-    <div>
-      <h2>How are you feeling now?</h2>
+    <div className="form-wrapper">
+      <h1>How are you feeling now?</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="mood">I am: </label>
         <select
@@ -57,8 +57,16 @@ const Form = () => {
           <option value="TIRED">Tired 😴</option>
         </select>
         <p>{errors.mood?.message}</p>
-        <label htmlFor="mood_influences">What has influenced this mood?</label>
-        <input id="mood_influences" {...register("mood_influences")} />
+        <div>
+          <label htmlFor="mood_influences">
+            What has influenced this mood?
+          </label>
+        </div>
+        <input
+          type="text"
+          id="mood_influences"
+          {...register("mood_influences")}
+        />
         <input type="submit" />
       </form>
     </div>
